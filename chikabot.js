@@ -145,6 +145,14 @@ client.on("message", async message => {
   if(command === "server") {
     message.channel.send("My discord community server! https://discord.gg/MmSrEEy")
   }
+  if (command === "8ball") {
+        var sayings = ["maybe",
+                                        "yes"
+                                        "no"];
+
+            var result = Math.floor((Math.random() * sayings.length) + 0);
+            client.reply(message, sayings[result]);
+    }
       
 
 });
