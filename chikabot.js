@@ -145,7 +145,7 @@ client.on("message", async message => {
   if(command === "server") {
     message.channel.send("My discord community server! https://discord.gg/MmSrEEy")
   }
-  if (message.content.startsWith(config.prefix + "8ball") === "8ball") {
+  if (message.content.startsWith(config.prefix + "8ball")) {
         var sayings = ["maybe",
                                         "yes",
                                         "no"];
