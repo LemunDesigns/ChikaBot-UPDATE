@@ -147,7 +147,7 @@ client.on("message", async message => {
   }
   if (message.content === "8ball") {
         var sayings = ["maybe",
-                                        "yes"
+                                        "yes",
                                         "no"];
 
             var result = Math.floor((Math.random() * sayings.length) + 0);
