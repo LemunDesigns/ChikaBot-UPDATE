@@ -113,11 +113,12 @@ client.on("message", async message => {
     "\n >fuckgirl - Something that you should have know about me" +
     "\n >lemun - also the creators name" +
     "\n >server - invite link to my server!" +
+    "\n >8ball - ask the magic ball a question!" +
     "\n [$Creator Of The Bot] lemun#1318```");
   }
 
   if(command === "soon") {
-    message.channel.send("Coming soon: `please play` = Music commands, `please 8ball` = The nostalgic eight ball!");
+    message.channel.send("Coming soon: `please play` = Music commands, `please 8ball` = The nostalgic eight ball!(Note- 8ball is out!)");
   }
   if(command === "invite") {
     message.channel.send("Invite me to your server! https://discordapp.com/oauth2/authorize?client_id=365944251491811338&scope=bot&permissions=8");
