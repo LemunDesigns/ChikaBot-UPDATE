@@ -141,6 +141,12 @@ client.on("message", async message => {
   if(command === "server") {
     message.channel.send("My discord community server! https://discord.gg/MmSrEEy")
   }
+  if (message.content.startsWith(prefix + 'setstatus')) {
+    if (!result) {
+      result = 'online';
+    }
+    client.user.setStatus(result);
+  
 
 
 });
