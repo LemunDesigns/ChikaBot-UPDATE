@@ -168,7 +168,7 @@ client.on("message", async message => {
 										"Very doubtful"];
 
             var result = Math.floor((Math.random() * sayings.length) + 0);
-            message.reply(message, sayings[result]);
+            message.reply(result);
     }
       
 
