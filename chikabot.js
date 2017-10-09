@@ -155,4 +155,4 @@ client.on("message", async message => {
 
 });
 
-client.login(config.token);
+client.login(procses.env.MzY1OTQ0MjUxNDkxODExMzM4.DLy7iQ.m_nSNp2gUyfItZqqmu_oX0_4vDg);
