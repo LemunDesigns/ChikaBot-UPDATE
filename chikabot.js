@@ -12,14 +12,6 @@ client.on("ready", () => {
 
   client.user.setGame(`on ${client.guilds.size} servers`, `https://twitch.tv/lemundesigns`);
 });
-client.on('guildMemberAdd', member => {
-
-  const channel = member.guild.channels.find('ChikaBot Community', 'member-log');
-
-  if (!channel) return;
-
-  channel.send(Welcome to the server, ${member});
-});
 
 client.on("guildCreate", guild => {
 
