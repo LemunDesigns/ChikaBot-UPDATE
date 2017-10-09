@@ -149,7 +149,7 @@ client.on("message", async message => {
         var sayings = ["maybe", "yes", "no"];
 
             var result = Math.floor((Math.random() * sayings.length) + 0);
-            client.reply(message, sayings[result]);
+            message.reply(message, sayings[result]);
     }
       
 
