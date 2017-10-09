@@ -141,6 +141,17 @@ client.on("message", async message => {
   if(command === "server") {
     message.channel.send("My discord community server! https://discord.gg/MmSrEEy")
   }
+    function doMagic8BallVoodoo() {
+      var rand = ['Yes', 'No', 'Why are you even trying?', 'What do you think? NO', 'Maybe', 'Never', 'Yep'];
+
+      return rand[Math.floor(Math.random()*rand.length)];
+  }
+
+  // Later in the code:
+  if(input == "!8BALL")
+  {
+      bot.reply(message, 'Your anwser is: ' + doMagic8BallVoodoo());
+  }
 
 
 });
