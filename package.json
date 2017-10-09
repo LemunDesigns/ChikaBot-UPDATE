@@ -1,0 +1,17 @@
+{
+  "name": "chikabot",
+  "version": "1.0.1",
+  "description": "typical discord bot",
+  "main": "chikabot.js",
+  "dependencies": {
+    "discord.js": "^11.2.1",
+    "chalk": "^2.1.0",
+    "return-deep-diff": "^0.2.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lemun designs",
+  "license": "ISC"
+}
