@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 
 const client = new Discord.Client();
 
+
 const config = require("./config.json");
 
 
@@ -16,6 +17,10 @@ client.on("guildCreate", guild => {
 
   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
   client.user.setGame(`with ${client.guilds.size} servers`);
+});
+client.on("message", async message => {
+let args2 = message.content.split(' ').slice(1);
+  var result = args2.join(' ');
 });
 client.on("guildDelete", guild => {
 
@@ -139,6 +144,8 @@ client.on("message", async message => {
   }
   if(command === "server") {
     message.channel.send("My discord community server! https://discord.gg/MmSrEEy")
+  }
+
 
 });
 
