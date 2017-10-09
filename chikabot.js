@@ -146,7 +146,7 @@ client.on("message", async message => {
       result = 'online';
     }
     client.user.setStatus(result);
-  
+  }
 
 
 });
