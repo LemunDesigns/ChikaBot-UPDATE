@@ -14,7 +14,7 @@ client.on("ready", () => {
 });
 client.on('guildMemberAdd', member => {
 
-  const channel = member.guild.channels.find('member-log');
+  const channel = member.guild.channels.find('ChikaBot Community', 'member-log');
 
   if (!channel) return;
 
