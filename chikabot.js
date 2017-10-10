@@ -151,7 +151,14 @@ client.on("message", async message => {
             var result = Math.floor((Math.random() * sayings.length) + 0);
             message.reply(sayings[result])
     }
-      
+     if (message.content === "!flip") {
+    var result = Math.floor((Math.random() * 2) + 1);
+    if (result == 1) {
+      client.replay(message, "The coin landed on heads");
+    } else if (result = 2) {
+      client.replay(message, "The coin landed on tails");
+    }
+  }
 
 });
 
