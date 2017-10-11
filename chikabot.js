@@ -159,7 +159,7 @@ client.on("message", async message => {
       client.replay(message, "The coin landed on tails");
     }
   }
-  if (args[0] === "suggestion") return msg.reply("Please specify something you want to suggest. Example\n`;suggest more music commands.`");
+  if (args[0] === "suggestion") return msg.reply("Please specify something you want to suggest. Example\n`;suggest music commands.`");
     args = args.join(" ");
     msg.reply("Your suggestion has been sent to Lemun for review.");
     const content = `**${msg.author.username}**#${msg.author.discriminator} (${msg.author.id}) suggested:\n${args}\nServer: **${msg.guild.id}**\nID: **${msg.guild.id}**`;
