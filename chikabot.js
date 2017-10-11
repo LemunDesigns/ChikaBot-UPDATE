@@ -161,7 +161,7 @@ client.on("message", async message => {
   }
   if (args[0] === "suggestion") return msg.reply("Please specify something you want to suggest. Example\n`;suggest more music commands.`");
     args = args.join(" ");
-    msg.reply("Your suggestion has been sent to Toasty HQ for review. To check the status, join Toasty HQ by typing, `;hq`");
+    msg.reply("Your suggestion has been sent to Lemun for review.");
     const content = `**${msg.author.username}**#${msg.author.discriminator} (${msg.author.id}) suggested:\n${args}\nServer: **${msg.guild.id}**\nID: **${msg.guild.id}**`;
     const id = '367780233925099521';
     return new Promise((resolve, reject) => {
