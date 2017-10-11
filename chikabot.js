@@ -170,9 +170,8 @@ client.on("message", async message => {
       .end((err, res) => {
         if (err) reject(err);
         else resolve(res);
-      });
-    });
-}
+      }
+
 
 });
 
