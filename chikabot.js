@@ -28,11 +28,11 @@ client.on("guildDelete", guild => {
 client.user.setGame(`on ${client.guilds.size} servers`);
 });
 exports.run = (client, message, args) => {
-    let question = message.content.split(' ').slice(1).join(' ');
+    if (message.content.startsWith(config.prefix + "8ball")) {
     /*
     List of answers that the bot can randomize
     */
-    const answers = [
+    var sayings = = [
         'As I See It Yes',
         'Ask Again Later',
         'Better Not Tell You Now',
