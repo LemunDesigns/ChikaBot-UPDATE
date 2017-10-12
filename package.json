@@ -1,0 +1,18 @@
+{
+  "name": "chikabot",
+  "version": "2.0.0",
+  "description": "Semi finall version!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lemundesigns",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "discord.js": "^11.2.1",
+    "moment": "^2.19.1",
+    "ms": "^2.0.0",
+    "return-deep-diff": "^0.2.9"
+  }
+}
