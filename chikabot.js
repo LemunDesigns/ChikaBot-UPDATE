@@ -133,9 +133,6 @@ client.on("message", async message => {
   if(command === "die") {
     message.channel.send("Sure, remind me, where is the bleach again?")
   }
-  if(command === "purge") {
-    message.channel.send("Sorry, but `>purge` is currently unstable. `Lemun#1318` will fix it as soon as possible!");
-  }
   if(command === "fuckgirl") {
     message.channel.send("Fuckgirl is my second name! how did you know that?");
   }
@@ -145,16 +142,34 @@ client.on("message", async message => {
   if(command === "server") {
     message.channel.send("My discord community server! https://discord.gg/MmSrEEy")
   }
-  if (message.content.startsWith(config.prefix + "8ball")) {
-        var sayings = ["It is certain", "It is decidedly so", "Without a doubt", "Yes, definitely", "You may rely on it", "As I see it, yes", "Most likely", "Outlook good", "Yes", "Signs point to yes", "Reply hazy try again", "Ask again later", "Better not tell you now", "Cannot predict now", "Concentrate and ask again", "Don't count on it", "My reply is no", "My sources say no", "Outlook not so good", "Very doubtful"];
-
-    if (!question) {
-        return message.reply('What question should I answer on? **Usage:** `>8ball Is lemun sexy?`');
+      let number = message.content.split(' ')[1];
+    if (!message.guild.member(message.author).hasPermission('ADMINISTRATOR')) {
+        return message.reply(':lock: **You** must have `ADMINISTRATOR` to use this command!');
     }
-    const embed = new Discord.RichEmbed()
-  .setAuthor(`8ball`, 'http://8ballsportsbar.com/wp-content/uploads/2016/02/2000px-8_ball_icon.svg_.png')
-  .addField('Info:', `**Your Question:** ${args}\n**My Prediction:** ${answers[~~(Math.random() * answers.length)]}`);
-    message.channel.send({embed}).catch(e => logger.error(e))
+    if (!number) {
+        return message.reply('How much days of inactivity you want to prune?');
+    }
+    const filterYes = m => m.content.startsWith('yes');
+    const filterNo = m => m.content.startsWith('no');
+    message.channel.send('Please this is a command that can make mistakes, please type `yes` If agree Below!\nIf not , just wait 7 seconds');
+    message.channel.awaitMessages(filterYes, {max: 1, time: 7000, errors: ['time']})
+.then(m => {
+    message.channel.send(`Pruning members!`);
+    message.guild.pruneMembers(number, true)
+     .then(pruned => {
+         const embed = new Discord.RichEmbed()
+     .setTitle(`Prune by ${message.author.username}`, message.author.displayAvatarURL)
+   .setDescription(`Pruned ${pruned} members with the agreement of ${message.author.tag}`);
+         client.guilds.get(message.guild.id).channels.find('name', 'mod-log').send({embed})
+      .catch(e => logger.error(e));
+     })
+   .catch(e => {
+       console.log(e);
+   });
+    message.guild.pruneMembers(number);
+})
+ .catch(e => {
+     message.channel.send('__***`Your request has been canceled!`***__');
 
 
 });
