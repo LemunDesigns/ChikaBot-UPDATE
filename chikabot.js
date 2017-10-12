@@ -200,6 +200,9 @@ client.on("message", async message => {
     message.channel.send({embed})
   .catch(e => logger.error(e));
 }
+          module.exports.help = {
+    name: 'userinfo'
+};
 
 });
 
