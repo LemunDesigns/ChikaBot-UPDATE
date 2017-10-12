@@ -81,9 +81,6 @@ client.user.setGame(`on ${client.guilds.size} servers`);
   .setColor(stat);
     message.channel.send({embed})
   .catch(e => logger.error(e));
-}
-          module.exports.help = {
-    name: 'userinfo'
 });
 
 
