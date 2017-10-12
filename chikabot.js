@@ -145,32 +145,38 @@ client.on("message", async message => {
   if(command === "server") {
     message.channel.send("My discord community server! https://discord.gg/MmSrEEy")
   }
-  if (message.content.startsWith(config.prefix + "8ball")) {
-        var sayings = ["It is certain", "It is decidedly so", "Without a doubt", "Yes, definitely", "You may rely on it", "As I see it, yes", "Most likely", "Outlook good", "Yes", "Signs point to yes", "Reply hazy try again", "Ask again later", "Better not tell you now", "Cannot predict now", "Concentrate and ask again", "Don't count on it", "My reply is no", "My sources say no", "Outlook not so good", "Very doubtful"];
+let question = message.content.split(' ').slice(1).join(' ');
+    /*
+    List of answers that the bot can randomize
+    */
+    const answers = [
+        'As I See It Yes',
+        'Ask Again Later',
+        'Better Not Tell You Now',
+        'Cannot Predict Now',
+        'Concentrate and Ask Again',
+        'Don\'t Count On It',
+        'It Is Certain', 'It Is Decidely So',
+        'Most Likely',
+        'My Reply Is No',
+        'My Sources Say No',
+        'Outlook Good',
+        'Outlook Not So Good',
+        'Reply Hazy Try Again',
+        'Signs Point to Yes',
+        'Very Doubtful',
+        'Without A Doubt',
+        'Yes',
+        'Yes - Definitely'
+    ];
 
-            var result = Math.floor((Math.random() * sayings.length) + 0);
-            message.reply(sayings[result])
+    if (!question) {
+        return message.reply('What question should I answer on? **Usage:** `~8ball is TheOnlyArtz sexy?`');
     }
-    if (message.content.startsWith(config.prefix + "flip")) {
-    var result = Math.floor((Math.random() * 2) + 1);
-    if (result == 1) {
-      client.replay(message, "The coin landed on heads");
-    } else if (result = 2) {
-      client.replay(message, "The coin landed on tails");
-    }
-  }
-  if (args[1] === "suggestion") return msg.reply("Please specify something you want to suggest. Example\n`;suggest music commands.`");
-    args = args.join(" ");
-    msg.reply("Your suggestion has been sent to Lemun for review.");
-    const content = `**${msg.author.username}**#${msg.author.discriminator} (${msg.author.id}) suggested:\n${args}\nServer: **${msg.guild.id}**\nID: **${msg.guild.id}**`;
-    const id = '367780233925099521';
-    return new Promise((resolve, reject) => {
-      superagent.post(`https://discordapp.com/api/channels/${id}/messages`)
-      .set('Authorization', `Bot ${client.token}`).send({ content })
-      .end((err, res) => {
-        if (err) reject(err);
-        else resolve(res);
-      }
+    const embed = new Discord.RichEmbed()
+  .setAuthor(`8ball`, 'http://8ballsportsbar.com/wp-content/uploads/2016/02/2000px-8_ball_icon.svg_.png')
+  .addField('Info:', `**Your Question:** ${args}\n**My Prediction:** ${answers[~~(Math.random() * answers.length)]}`);
+    message.channel.send({embed}).catch(e => logger.error(e))
 
 
 });
