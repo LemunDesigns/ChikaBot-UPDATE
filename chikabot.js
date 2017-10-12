@@ -32,7 +32,7 @@ exports.run = (client, message, args) => {
     /*
     List of answers that the bot can randomize
     */
-    var sayings = = [
+    var sayings = [
         'As I See It Yes',
         'Ask Again Later',
         'Better Not Tell You Now',
