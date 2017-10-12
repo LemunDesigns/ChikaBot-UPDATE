@@ -27,39 +27,28 @@ client.on("guildDelete", guild => {
   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
 client.user.setGame(`on ${client.guilds.size} servers`);
 });
-exports.run = (client, message, args) => {
-    if (message.content.startsWith(config.prefix + "8ball")) {
-    /*
-    List of answers that the bot can randomize
-    */
-    const answers = [
-        'As I See It Yes',
-        'Ask Again Later',
-        'Better Not Tell You Now',
-        'Cannot Predict Now',
-        'Concentrate and Ask Again',
-        'Don\'t Count On It',
-        'It Is Certain', 'It Is Decidely So',
-        'Most Likely',
-        'My Reply Is No',
-        'My Sources Say No',
-        'Outlook Good',
-        'Outlook Not So Good',
-        'Reply Hazy Try Again',
-        'Signs Point to Yes',
-        'Very Doubtful',
-        'Without A Doubt',
-        'Yes',
-        'Yes - Definitely'
-    ];
-    /*
-    If author didn't ask a question return
-    */
-    if (!question) {
-        return message.reply('What question should I answer on? **Usage:** `~8ball is Lemun sexy?`');
-    }
+ if(command === "help") {
+
+    message.channel.send("\n```fix" +
+    "\n Things I can do:" +
+    "\n >help - Show's what I can do" +
+    "\n >ping - Calculates ping between sending a message and editing it, The second ping is an average latency between the bot and the websocket server" +
+    "\n >kick - Kicks a mentioned id" +
+    "\n >ban - Don't need to explain what a BanHammer is" +
+    "\n >purge - Deletes a set amount of messages, between 2-100" +
+    "\n >invite - invite me to your server!" +
+    "\n >inch - Something in your mom ツ" +
+    "\n >soon - upcoming commands" +
+    "\n >youtube - a little story about the bot creator" +
+    "\n >die - Will bring you some suicde info" +
+    "\n >fuckgirl - Something that you should have know about me" +
+    "\n >lemun - also the creators name" +
+    "\n >server - invite link to my server!" +
+    "\n >8ball - ask the magic ball a question!" +
+    "\n [$Creator Of The Bot] lemun#1318```");
+  }
     const embed = new Discord.RichEmbed()
-  .setAuthor(`8ball`, 'http://8ballsportsbar.com/wp-content/uploads/2016/02/2000px-8_ball_icon.svg_.png')
+  .setAuthor(`Help`, 'https://cdn.pixabay.com/photo/2016/09/28/21/03/help-button-1701468_960_720.png')
   .addField('Info:', `**Your Question:** ${args}\n**My Prediction:** ${answers[~~(Math.random() * answers.length)]}`);
     message.channel.send({embed}).catch(e => logger.error(e))
 };
@@ -152,6 +141,7 @@ client.on("message", async message => {
     "\n >8ball - ask the magic ball a question!" +
     "\n [$Creator Of The Bot] lemun#1318```");
   }
+
 
   if(command === "soon") {
     message.channel.send("Coming soon: `please play` = Music commands, `please 8ball` = The nostalgic eight ball!(Note- 8ball is out!)");
